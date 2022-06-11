@@ -83,8 +83,15 @@ def perceptron_single_step_update(
     real valued number with the value of theta_0 after the current updated has
     completed.
     """
-    # Your code here
-    raise NotImplementedError
+    epsilon=np.finfo(float).eps  #to avoid numeric inconsistencies identify 0 with a small range
+    z_hinge_loss=label*(np.dot(feature_vector,current_theta)+current_theta_0)
+    if z_hinge_loss<epsilon:
+        theta=current_theta+label*feature_vector
+        theta_0=current_theta_0+label
+    else: 
+        theta=current_theta
+        theta_0=current_theta_0
+    return (theta,theta_0)
 
 
 def perceptron(feature_matrix, labels, T):
