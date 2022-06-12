@@ -26,14 +26,6 @@ test_bow_features = p1.extract_bow_feature_vectors(test_texts, dictionary)
 # Testing funtions
 #-------------------------------------------------------------------------------
 
-feature_vector=np.array([1,1])
-label=1
-theta=np.array([1,-1])
-theta_0=-1
-
-hinge_loss=p1.hinge_loss_single(feature_vector, label, theta, theta_0)
-print('Extracted hinge_loss is = {}'.format(hinge_loss))
-
 #%%
 #-------------------------------------------------------------------------------
 # Problem 5
