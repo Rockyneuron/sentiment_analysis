@@ -200,8 +200,15 @@ def pegasos_single_step_update(
     real valued number with the value of theta_0 after the current updated has
     completed.
     """
-    # Your code here
-    raise NotImplementedError
+    z_hinge_loss=label*(np.dot(feature_vector,current_theta)+current_theta_0)
+
+    if z_hinge_loss<=1:
+        theta=(1-eta*L)*current_theta+eta*label*feature_vector
+        theta_0=current_theta_0+eta*label
+    else: 
+        theta=(1-eta*L)*current_theta
+        theta_0=current_theta_0
+    return (theta,theta_0)
 
 
 def pegasos(feature_matrix, labels, T, L):
